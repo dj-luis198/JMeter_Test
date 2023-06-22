@@ -28,12 +28,13 @@ jobs:
         # You may pin to the exact commit or the version.
         # uses: QAInsights/PerfAction@f3959d0a69e7f23949add25d7e34a3ae167d6443
         uses: QAInsights/PerfAction@v3.1
+        
+      - name: Run test
+        run:
+          jmeter -n -t ".\PHTTP.jmx" -l ".\reports\result.csv" -e -o ".\reports"
+         
+      - name: Deploy result
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          # jmeter test plan to execute
-          test-plan-path: .\PHTTP.jmx
-          
-      - name: Upload Results
-        uses: actions/upload-artifact@v2
-        with:
-          name: jmeter-results
-          path: result.jtl
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          publish_dir: ./reports
