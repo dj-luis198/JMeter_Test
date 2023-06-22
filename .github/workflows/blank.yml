@@ -30,13 +30,7 @@ jobs:
         uses: QAInsights/PerfAction@v3.1
         with:
           # jmeter test plan to execute
-          test-plan-path: jmeter -n -t ".\PHTTP.jmx" -l ".\reports\result.csv" -e -o ".\reports"
-         
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{secrets.GITHUB_TOKEN}}
-          publish_dir: ./reports
+          test-plan-path: .\PHTTP.jmx
           
       - name: Upload Results
         uses: actions/upload-artifact@v2
