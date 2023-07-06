@@ -24,6 +24,7 @@ jobs:
           # The path to the JMX test file
           testFilePath: DemoQA_Performance.jmx
           outputReportsFolder: reports/
+          plugins: "jpgc-casutg"
          
       - name: Deploy result
         if: success() || failure()
