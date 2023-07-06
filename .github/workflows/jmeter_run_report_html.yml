@@ -22,7 +22,7 @@ jobs:
         uses: rbhadti94/apache-jmeter-action@v0.7.0
         with:
           # The path to the JMX test file
-          testFilePath: opencart.jmx
+          testFilePath: DemoQA_Performance.jmx
           outputReportsFolder: reports/
          
       - name: Deploy result
